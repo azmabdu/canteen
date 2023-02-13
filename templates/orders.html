@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+    <h2>Your Orders</h2>
+    <div class="order-row">
+        <div class="block-wrapper ">
+            {% for order in orders %}
+                <div class="displaycolumn">
+                <h3 class="fitcontent">{{ order.weekday }}</h3>
+                 <div class="block-item forcolumn">
+                 <div>
+                    <p class="title">{{ order.lunch }} Lunch</p>
+                    {% for item in order.lunch.menuitem.all %}
+                        <p>{{ item }}</p>
+                    {% endfor %}
+                 </div>
+                        <a href="{% url "main:remove-order" order.weekday_id order.lunch_id %}">
+                             <button class="block_item-btn btn btn-danger btn-sm">Remove</button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

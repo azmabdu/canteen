@@ -1,0 +1,70 @@
+
+ul {
+    list-style-type: none;
+}
+
+@font-face {
+    font-family: 'Ubuntu-B';
+    src: url('../fonts/Ubuntu-B.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu-L';
+    src: url('../fonts/Ubuntu-L.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu-M';
+    src: url('../fonts/Ubuntu-M.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu-R';
+    src: url('../fonts/Ubuntu-R.ttf');
+}
+
+@font-face {
+    font-family: 'UbuntuMB';
+    src: url('../fonts/UbuntuMB.ttf');
+}
+
+@font-face {
+    font-family: 'UbuntuMR';
+    src: url('../fonts/UbuntuMR.ttf');
+}
+
+body {
+    font-family: 'Ubuntu-R';
+}
+
+
+nav.navbar {
+    z-index: 99;
+    height: 70px;
+    margin-left: 380px;
+}
+
+nav.navbar a.navbar-brand {
+    margin-right: 30px;
+}
+
+ul.navbar-nav li.active a {
+    border-bottom: 2px solid #4b86f0;
+}
+
+
+ul.navbar-nav li a:hover {
+    background: unset;
+    border-bottom: solid #4b86f0;
+}
+
+ul.navbar-nav li a {
+    color: #000;
+    font-size: 18px;
+    font-family: 'UbuntuMB';
+    text-transform: uppercase;
+    padding: 25px 0px;
+    margin: 0px 20px;
+}
+
+

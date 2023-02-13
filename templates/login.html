@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger notify" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="group-form">
+            <h2>Login</h2>
+        <form action="{% url 'main:login' %}" method="POST">
+            {% csrf_token %}
+            <p>Email: {{ form.email }}</p>
+            <p>Password: {{ form.password }}</p>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+            Don't have an account? <a href="{% url 'main:register' %}">Register</a>
+    </div>
+{% endblock %}

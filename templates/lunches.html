@@ -1,0 +1,74 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+    <h2>Lunches</h2>
+     <div class="row">
+        <div class="block-wrapper">
+            {% for lunch in monday.lunch.all %}
+                <div class="block-item">
+                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    {% for item in lunch.menuitem.all %}
+                        <p style="margin: 0;">{{ item }}</p>
+                    {% endfor %}
+                    <a href="{% url "main:add-launch" monday.id lunch.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="block-wrapper">
+            {% for lunch in tuesday.lunch.all %}
+                <div class="block-item">
+                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    {% for item in lunch.menuitem.all %}
+                        <p>{{ item }}</p>
+                    {% endfor %}
+                    <a href="{% url "main:add-launch" tuesday.id lunch.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="block-wrapper">
+            {% for lunch in wednesday.lunch.all %}
+                <div class="block-item">
+                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    {% for item in lunch.menuitem.all %}
+                        <p>{{ item }}</p>
+                    {% endfor %}
+                    <a href="{% url "main:add-launch" wednesday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="block-wrapper">
+            {% for lunch in thursday.lunch.all %}
+                <div class="block-item">
+                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    {% for item in lunch.menuitem.all %}
+                        <p>{{ item }}</p>
+                    {% endfor %}
+                    <a href="{% url "main:add-launch" thursday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="block-wrapper">
+            {% for lunch in friday.lunch.all %}
+                <div class="block-item">
+                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    {% for item in lunch.menuitem.all %}
+                        <p>{{ item }}</p>
+                    {% endfor %}
+                    <a href="{% url "main:add-launch" friday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+

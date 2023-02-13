@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger notify" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <h2>Payment</h2>
+    <h3>Total orders to pay: {{ orders.count  }}</h3>
+    <h3>Total sum: {{ sum }}</h3>
+    <a href="{% url "main:pay" %}">
+        <button class="btn btn-primary btn-lg">Pay</button>
+    </a>
+{% endblock %}

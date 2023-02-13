@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger notify" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="group-form">
+        <h2>Register</h2>
+    <form action="{% url "main:register" %}" method="POST">
+        {% csrf_token %}
+
+        <p>Email: {{ form.email }}</p>
+        <p>Full Name: {{ form.full_name }}</p>
+        <p>Password: {{ form.password1 }}</p>
+        <p>Confirm Password: {{ form.password2 }}</p>
+
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    Already have an account? <a href="{% url 'main:login' %}">Register</a>
+    </div>
+{% endblock %}
