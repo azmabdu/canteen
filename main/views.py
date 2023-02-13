@@ -148,7 +148,12 @@ def pay(request):
         return render(request, "payment.html")
     else:
         user.balance -= sum
+        for order in orders:
+            order.paid = True
+            order.save(update_fields=['paid'])
+
         user.save(update_fields=['balance'])
+
 
     return redirect("/orders")
 

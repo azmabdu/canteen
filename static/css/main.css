@@ -116,7 +116,11 @@ h1 {
     text-align: center;
     margin-left: 70px;
 }
+
 .title {
     font-size: 15px;
 }
 
+.item {
+    margin: 0;
+}

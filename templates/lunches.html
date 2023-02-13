@@ -9,7 +9,7 @@
                 <div class="block-item">
                     <p class="title">{{ monday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
-                        <p style="margin: 0;">{{ item }}</p>
+                        <p class="item">{{ item }}</p>
                     {% endfor %}
                     <a href="{% url "main:add-launch" monday.id lunch.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="block-item">
                     <p class="title">{{ monday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
-                        <p>{{ item }}</p>
+                        <p class="item">{{ item }}</p>
                     {% endfor %}
                     <a href="{% url "main:add-launch" tuesday.id lunch.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="block-item">
                     <p class="title">{{ monday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
-                        <p>{{ item }}</p>
+                        <p class="item">{{ item }}</p>
                     {% endfor %}
                     <a href="{% url "main:add-launch" wednesday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="block-item">
                     <p class="title">{{ monday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
-                        <p>{{ item }}</p>
+                        <p class="item">{{ item }}</p>
                     {% endfor %}
                     <a href="{% url "main:add-launch" thursday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="block-item">
                     <p class="title">{{ monday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
-                        <p>{{ item }}</p>
+                        <p class="item">{{ item }}</p>
                     {% endfor %}
                     <a href="{% url "main:add-launch" friday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
                 </div>
