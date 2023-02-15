@@ -60,16 +60,23 @@ class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True, blank=False, null=False)
     full_name = models.CharField(max_length=255, blank=False, null=False)
-    balance = models.DecimalField(max_digits=1000, default=1000, blank=True, decimal_places=2)
+    balance = models.DecimalField(max_digits=1000, default=100_000, blank=True, decimal_places=2)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = UserManager()
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
 
 class MenuItem(models.Model):
-    lunch = models.ManyToManyField(Lunch, related_name="menuitem")
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="menuitems")
+    lunch = models.ManyToManyField(Lunch, blank=True, related_name="menuitem")
     title = models.CharField(max_length=255, blank=False, null=False)
-    price = models.DecimalField(max_digits=1000, decimal_places=2)
+    price = models.DecimalField(max_digits=1000, decimal_places=2,)
 
     def __str__(self):
         return f"{self.title}"
