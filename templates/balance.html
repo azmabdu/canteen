@@ -11,14 +11,14 @@
           <img src="/static/images/icons8-credit-card-64.png" alt="" class="balance_credit-card">
         </div>
         <span class='card-name'>
-          Oxyzen Pay
+          {{ request.user }}
         </span>
       </div>
       <div class="middle-block">
 
         <div class="balance_title">Balance</div>
         <div class='card-balance'>
-          $ 8619.98
+          $ {{ request.user.balance }}
         </div>
       </div>
       <div class='bottom-block'>
