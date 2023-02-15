@@ -8,11 +8,21 @@
             </div>
         {% endfor %}
     {% endif %}
-
     <h2>Payment</h2>
-    <h3>Total orders to pay: {{ orders.count  }}</h3>
-    <h3>Total sum: {{ sum }}</h3>
-    <a href="{% url "main:pay" %}">
-        <button class="btn btn-primary btn-lg">Pay</button>
-    </a>
+<div class="payment_container">
+    <div class="first_line-pay">
+        <div class="one_item mr0">
+            <h3>Total orders to pay: </h3><h3 class="count"> {{ orders.count  }}</h3>
+        </div>
+        <div class="one_item ml0">
+            <h3>Total sum: </h3><h3 class="sum">{{ sum }}</h3>
+        </div>
+    </div>
+    <div class="second_line-pay">
+        
+        <a href="{% url "main:pay" %}">
+            <button class="full_width btn btn-primary btn-lg ">Pay</button>
+        </a>
+    </div>
+</div>
 {% endblock %}

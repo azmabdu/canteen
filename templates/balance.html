@@ -2,6 +2,39 @@
 
 
 {% block content %}
-    <h2>Balance</h2>
-    <h3>Current balance: {{ balance }} USD</h3>
+<div class="balance_container">
+
+  <div class="balance_body">
+    <div class='card'>
+      <div class='top-block'>
+        <div class='card-chip'>
+          <img src="/static/images/icons8-credit-card-64.png" alt="" class="balance_credit-card">
+        </div>
+        <span class='card-name'>
+          Oxyzen Pay
+        </span>
+      </div>
+      <div class="middle-block">
+
+        <div class="balance_title">Balance</div>
+        <div class='card-balance'>
+          $ 8619.98
+        </div>
+      </div>
+      <div class='bottom-block'>
+        <div class='balance'>
+          <div class='card-number'>
+            <p>XXXX XXXX XXXX 7203</p>
+          </div>
+        </div>
+        <div class='card-icon'>
+
+          <img class="uzcard" src="/static/images/uzcard1_EchoSUl4QH.png" alt="uzcard">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
 {% endblock %}

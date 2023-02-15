@@ -1,12 +1,12 @@
 html {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     text-align: center;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -30,13 +30,14 @@ h1 {
     justify-content: space-around;
 }
 
-.row .block-wrapper{
+.row .block-wrapper {
     display: flex;
     justify-content: space-between;
     width: 500px;
 
 }
-.row .block-wrapper .block-item{
+
+.row .block-wrapper .block-item {
     border: 1px solid;
     border-radius: 10px;
     width: 160px;
@@ -74,12 +75,12 @@ h1 {
     position: relative;
 }
 
-.fitcontent{
+.fitcontent {
     height: fit-content;
 }
 
 
-.displaycolumn{
+.displaycolumn {
     display: flex;
     flex-direction: column;
 }
@@ -92,15 +93,17 @@ h1 {
     margin-top: auto;
 
 }
-.forcolumn{
+
+.forcolumn {
     color: white;
     background-color: darkblue;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.block_item-btn{
-    margin-bottom:0;
+
+.block_item-btn {
+    margin-bottom: 0;
 }
 
 .button {
@@ -116,7 +119,177 @@ h1 {
     text-align: center;
     margin-left: 70px;
 }
+
 .title {
     font-size: 15px;
 }
 
+.balance_body{
+    width: 50%;
+    margin:auto
+}
+/* .balance_body-left {
+    width: 45%;
+    height: 100%;
+    background-color: #b5dfcf;
+    color: rgb(30, 0, 183);
+    border-radius: 20px;
+    margin-top: auto;
+}
+.balance_body-right{
+    flex: 1;
+    background-color:rgb(42, 126, 244);
+} */
+.balance_title{
+margin: 0;
+} 
+.balance_container{
+    width: 100%;
+    height: 100%;
+    padding: 80px;
+}
+
+.card{
+    height: 100%;
+    width: 100%;
+    background: rgb(42,134,153);
+    background: linear-gradient(325deg, rgba(42,134,153,1) 11%, rgba(154,232,249,1) 72%, rgba(255,255,255,1) 100%);
+    border-radius: 20px;
+    color:white;
+    /* margin:20px; */
+    font-size: 16px;
+    box-shadow: 2px 2px 20px #707070;
+    display: flex;flex-direction: column;
+    justify-content: space-between;
+  }
+  .top-block{
+    display: inline-block;
+    width:100%;
+    height:fit-content;
+  }
+  .middle-block{
+    margin-bottom: 50px;
+  }
+  .bottom-block{
+    display: inline-block;
+    width:100%;
+    height:100px;
+  }
+  .card-chip{
+    float:left;
+    margin: 20px;
+    margin-bottom: 0;
+    width: 15%;
+    height: auto;
+  }
+  .card-name{
+    float:right;
+    margin:20px;
+    margin-bottom: 0;
+    position:relative;
+    font-size: 28px;
+    font-weight:550;
+  }
+  .card-number{
+    font-size: 28px;
+    margin: -15px 0 0 0;
+    text-align-last: center; 
+  }
+  .balance{
+    float:left;
+    margin: 20px;
+    position:relative;
+    top:38px;
+  }
+  .card-balance{
+    font-weight:700;
+    font-size: 85px;
+    margin-top:10px;
+    
+  }
+  .card-icon{
+    float:right;
+    margin: 0 20px 0 0;
+    /* margin-top:75px; */
+  }
+  .circle-left{
+    margin-right: -15px;
+    opacity:0.7;
+  }
+.balance_title{
+    font-size: 40px;
+}
+.balance_credit-card{
+    width: 70px;
+    /* background-color: white; */
+    height: auto;
+}
+.uzcard{
+    width: 100px;height: 100px;
+    margin-top: 15px;
+    /* object-fit: contain; */
+}
+
+
+
+
+
+
+
+
+
+
+/* payment */
+
+
+
+
+
+
+
+.payment_container{
+    width: 60%;
+    height: 80%;
+    background-image: linear-gradient(rgb(204, 204, 251),rgb(196, 190, 248) );    margin: auto;
+    border-radius: 20px;
+    display: flex;flex-direction: column;
+    justify-content: space-around;
+}
+.first_line-pay{
+    display: flex;
+    gap: 40px;
+}
+.one_item{
+    width: 30%;
+    height: 90%;
+    background: rgb(76,161,175);
+    background: linear-gradient(176deg, rgb(88, 182, 197) 29%, rgba(45,179,251,1) 88%);margin:40px auto ;
+    color: white;
+    /* border: 1px solid #e7e7e7; */
+    border-radius: 20px;
+    box-shadow: 2px -4px 72px 7px rgba(255,255,255,0.45);
+    -webkit-box-shadow: 2px -4px 72px 7px rgba(255,255,255,0.45);
+    -moz-box-shadow: 2px -4px 72px 7px rgba(255,255,255,0.45);
+}
+.count, .sum{
+    font-size: 80px;
+}
+.ml0{
+    margin-left: 0;
+}
+.mr0{
+    margin-right: 0;
+}
+.second_line-pay{
+    width: 65%;
+    height: auto;
+    margin: auto;
+}
+.full_width{
+    width: 100%;
+    height: 100px;
+    font-size: 50px !important;
+    background: rgb(76,161,175);
+    background: linear-gradient(176deg,  rgb(88, 182, 197) 29%, rgba(45,179,251,1) 88%)!important;
+    /* padding-bottom: 20px; */
+}
