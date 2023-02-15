@@ -4,6 +4,7 @@
 {% block content %}
     <h2>Lunches</h2>
      <div class="row">
+
         <div class="block-wrapper">
             {% for lunch in monday.lunch.all %}
                 <div class="block-item">
@@ -15,10 +16,11 @@
                 </div>
             {% endfor %}
         </div>
+
         <div class="block-wrapper">
             {% for lunch in tuesday.lunch.all %}
                 <div class="block-item">
-                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    <p class="title">{{ tuesday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
                         <p class="item">{{ item }}</p>
                     {% endfor %}
@@ -26,13 +28,15 @@
                 </div>
             {% endfor %}
         </div>
+
     </div>
 
     <div class="row">
+
         <div class="block-wrapper">
             {% for lunch in wednesday.lunch.all %}
                 <div class="block-item">
-                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    <p class="title">{{ wednesday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
                         <p class="item">{{ item }}</p>
                     {% endfor %}
@@ -40,10 +44,11 @@
                 </div>
             {% endfor %}
         </div>
+
         <div class="block-wrapper">
             {% for lunch in thursday.lunch.all %}
                 <div class="block-item">
-                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    <p class="title">{{ thursday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
                         <p class="item">{{ item }}</p>
                     {% endfor %}
@@ -51,12 +56,15 @@
                 </div>
             {% endfor %}
         </div>
+
     </div>
+
     <div class="row">
+
         <div class="block-wrapper">
             {% for lunch in friday.lunch.all %}
                 <div class="block-item">
-                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
+                    <p class="title">{{ friday.weekday }} {{ lunch }}</p>
                     {% for item in lunch.menuitem.all %}
                         <p class="item">{{ item }}</p>
                     {% endfor %}

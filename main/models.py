@@ -35,7 +35,6 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", False)
         return self._create_user(email, password, **extra_fields)
 
-
 class Lunch(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
 

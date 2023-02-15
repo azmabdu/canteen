@@ -33,7 +33,7 @@ h1 {
 .row .block-wrapper{
     display: flex;
     justify-content: space-between;
-    width: 500px;
+    width: 550px;
 
 }
 .row .block-wrapper .block-item{
@@ -123,6 +123,7 @@ h1 {
 
 .item {
     margin: 0;
+}
 
 .rules {
 
