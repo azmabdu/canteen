@@ -33,7 +33,7 @@ h1 {
 .row .block-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 500px;
+    width: 550px;
 
 }
 
@@ -124,6 +124,7 @@ h1 {
     font-size: 15px;
 }
 
+<<<<<<< HEAD
 .balance_body{
     width: 50%;
     margin:auto
@@ -294,4 +295,12 @@ margin: 0;
     background: rgb(76,161,175);
     background: linear-gradient(176deg,  rgb(88, 182, 197) 29%, rgba(45,179,251,1) 88%)!important;
     /* padding-bottom: 20px; */
+=======
+.item {
+    margin: 0;
+}
+
+.rules {
+
+>>>>>>> ea1db694700519ee5fa80c5bea207c755559b3c2
 }

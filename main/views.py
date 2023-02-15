@@ -34,7 +34,10 @@ def authenticateUser(request):
 
         if form.is_valid():
             user = form.save()
-            messages.success(request, f"{user} has been created")
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, 'Error Occured')
 
     return render(request, "register.html", {
         "form": form
@@ -148,7 +151,12 @@ def pay(request):
         return render(request, "payment.html")
     else:
         user.balance -= sum
+        for order in orders:
+            order.paid = True
+            order.save(update_fields=['paid'])
+
         user.save(update_fields=['balance'])
+
 
     return redirect("/orders")
 
