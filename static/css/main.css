@@ -250,7 +250,9 @@ margin: 0;
 .payment_container{
     width: 60%;
     height: 80%;
-    background-image: linear-gradient(rgb(204, 204, 251),rgb(196, 190, 248) );    margin: auto;
+    background-image: linear-gradient(rgb(204, 204, 251),rgb(196, 190, 248) );   
+    /* background-color: #fff987;  */
+    margin: auto;
     border-radius: 20px;
     display: flex;flex-direction: column;
     justify-content: space-around;
