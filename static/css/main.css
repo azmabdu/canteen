@@ -304,7 +304,13 @@ margin: 0;
 
 
 
-
+/* .input_register{
+    position: relative;
+    top: 40px;
+} */
+.register_txt{
+margin-top: 40px; 
+}
 
 
 
@@ -371,10 +377,11 @@ margin: 0;
     margin: auto;
     display: flex;
     padding: 10px;
-    padding-right: 0;
+    /* padding-right: 0; */
     justify-content: space-between;
     background-color: aliceblue;
     height: 80px;
+    position: relative;
 }
 .borderup{
     border-radius: 15px 15px 0 0;
@@ -385,14 +392,17 @@ border-radius:0 0 15px 15px;
 }
 .login_input p{
     height:fit-content;
-    margin: auto;
+    margin: auto 10px;
 }
 
 .input{
     /* margin-right: 0; */
-    /* width: 70px; */
-    position: relative;
-    right: 0;
+    width:fit-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 7px;
+
 }
 .btn_login{
     width: 100px;
@@ -401,4 +411,12 @@ border-radius:0 0 15px 15px;
 }
 .btn_login button{
     width: 100%;
+}
+.reg-p{
+    width: fit-content;
+    /* margin: auto; */
+}
+.warning_reg{
+    width: fit-content;
+    margin: auto;
 }

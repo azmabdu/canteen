@@ -2,28 +2,48 @@
 
 
 {% block content %}
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-danger notify" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger notify" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 
-    <div class="group-form">
-        <h2>Register</h2>
+<div class="group-form-reg">
+    <h2 class="register_txt">Register</h2>
     <form action="{% url "main:register" %}" method="POST">
         {% csrf_token %}
+        <div class="input_register">
 
-        <p>Email: {{ form.email }}</p>
-        <p>Full Name: {{ form.full_name }}</p>
-        <p>Password: {{ form.password1 }}</p>
-        <p style="font-size: 11px; margin-right: 110px;">* at least 8 characters</p>
-        <p style="font-size: 11px; margin-right: 60px;">* at least 1 upper or lower case letter</p>
-        <p>Confirm Password: {{ form.password2 }}</p>
-
-        <button class="btn btn-primary" type="submit">Register</button>
-    </form>
-    Already have an account? <a href="{% url 'main:login' %}">Register</a>
+            <div class="login_input borderup">
+                <p>Email:</p>
+                <p class="input"> {{ form.email }}</p>
+            </div>
+            <div class="login_input ">
+                <p>Full Name:</p>
+                <p class="input"> {{ form.full_name }}</p>
+            </div>
+            <div class="login_input ">
+            <p>Password: </p>
+            <p class="input"> {{ form.password1 }}</p>
+        </div>
+        <div class="login_input borderdown">
+            <p>Confirm <br> Password: </p>
+            <p class="input"> {{ form.password2 }}</p>
+        </div>
     </div>
+    <div class="warning_reg">
+        <p class="reg-p" style="font-size: 11px; margin-right: 110px;">* at least 8 characters</p>
+        <p  class="reg-p" style="font-size: 11px; margin-right: 60px;">* at least 1 upper or lower case letter</p>
+    </div>
+    
+</form>
+<div class="btn_login">
+
+<button class="btn btn-primary" type="submit">Register</button>
+</div>
+Already have an account? <a href="{% url 'main:login' %}">Register</a>
+</div>
+</div>
 {% endblock %}
