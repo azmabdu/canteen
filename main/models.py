@@ -60,7 +60,7 @@ class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True, blank=False, null=False)
     full_name = models.CharField(max_length=255, blank=False, null=False)
-    balance = models.DecimalField(max_digits=1000, default=100_000, blank=True, decimal_places=2)
+    balance = models.DecimalField(max_digits=1000, default=1_000_000, blank=True, decimal_places=2)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = UserManager()

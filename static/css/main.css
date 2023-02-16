@@ -204,12 +204,14 @@ margin: 0;
     position:relative;
     top:38px;
   }
+
   .card-balance{
     font-weight:700;
-    font-size: 85px;
+    font-size: 65px;
     margin-top:10px;
-    
+
   }
+
   .card-icon{
     float:right;
     margin: 0 20px 0 0;
@@ -277,7 +279,7 @@ margin: 0;
     -moz-box-shadow: 2px -4px 72px 7px rgba(255,255,255,0.45);
 }
 .count, .sum{
-    font-size: 80px;
+    font-size: 50px;
 }
 .ml0{
     margin-left: 0;
@@ -420,3 +422,5 @@ border-radius:0 0 15px 15px;
     width: fit-content;
     margin: auto;
 }
+
+

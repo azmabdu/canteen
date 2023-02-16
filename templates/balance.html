@@ -18,15 +18,15 @@
 
         <div class="balance_title">Balance</div>
         <div class='card-balance'>
-          $ {{ request.user.balance }}
+           {{ request.user.balance|floatformat:0 }} UZS
         </div>
       </div>
       <div class='bottom-block'>
-        <div class='balance'>
-          <div class='card-number'>
-            <p>XXXX XXXX XXXX 7203</p>
-          </div>
-        </div>
+{#        <div class='balance'>#}
+{#          <div class='card-number'>#}
+{#            <p>XXXX XXXX XXXX 7203</p>#}
+{#          </div>#}
+{#        </div>#}
         <div class='card-icon'>
 
           <img class="uzcard" src="/static/images/uzcard1_EchoSUl4QH.png" alt="uzcard">

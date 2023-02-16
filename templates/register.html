@@ -37,13 +37,14 @@
         <p class="reg-p" style="font-size: 11px; margin-right: 110px;">* at least 8 characters</p>
         <p  class="reg-p" style="font-size: 11px; margin-right: 60px;">* at least 1 upper or lower case letter</p>
     </div>
-    
-</form>
-<div class="btn_login">
 
-<button class="btn btn-primary" type="submit">Register</button>
-</div>
-Already have an account? <a href="{% url 'main:login' %}">Register</a>
+        <div class="btn_login">
+            <a href="{% url "main:register" %}">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </a>
+        </div>
+</form>
+Already have an account? <a href="{% url 'main:login' %}">Login</a>
 </div>
 </div>
 {% endblock %}

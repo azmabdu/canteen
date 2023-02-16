@@ -31,9 +31,10 @@ def authenticateUser(request):
     form = UserForm()
     if request.method == 'POST':
         form = UserForm(data=request.POST)
-
+        print(form)
         if form.is_valid():
             user = form.save()
+            print(user)
             login(request, user)
             return redirect('/')
         else:
