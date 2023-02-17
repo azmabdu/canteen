@@ -38,7 +38,7 @@ def authenticateUser(request):
             login(request, user)
             return redirect('/')
         else:
-            messages.error(request, 'Error Occured')
+            messages.error(request, 'Invalid Info')
 
     return render(request, "register.html", {
         "form": form
