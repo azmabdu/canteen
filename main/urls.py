@@ -16,6 +16,6 @@ urlpatterns = [
     path('', home, name="home"),
 
     path('pay', pay, name="pay"),
-    path('remove-order/<int:weekday_id>/<int:lunch_id>', remove_order, name="remove-order"),
-    path('add-launch/<int:weekday_id>/<int:lunch_id>', add_launch, name="add-launch"),
+    path('remove-order/<int:weekday_id>/<int:menuitem_id>', remove_order, name="remove-order"),
+    path('add-launch/<int:weekday_id>/<int:menuitem_id>', add_launch, name="add-launch"),
 ]

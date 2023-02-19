@@ -7,20 +7,67 @@
         <div class="block-wrapper ">
             {% for order in orders %}
                 <div class="displaycolumn">
-                <h3 class="fitcontent">{{ order.weekday }}</h3>
-                 <div class="block-item forcolumn">
-                 <div>
-                    <p class="title">{{ order.lunch }} Lunch</p>
-                    {% for item in order.lunch.menuitem.all %}
-                        <p>{{ item }}</p>
-                    {% endfor %}
-                 </div>
-                        <a href="{% url "main:remove-order" order.weekday_id order.lunch_id %}">
-                             <button class="block_item-btn btn btn-danger btn-sm">Remove</button>
-                        </a>
-                    </div>
+                    <h4 class="fitcontent">{{ order.weekday.weekday }} {{ order.weekday.datetime|date:"M d" }}</h4>
+                     {% if not order.paid  %}
+                         <div class="block-item forcolumn not-paid">
+                     {% else %}
+                        <div class="block-item forcolumn paid">
+                     {% endif %}
+                     <div>
+                        <p class="title">{{ order.menuitem.lunch }}</p>
+                            <p class="item">{{ order.menuitem.title }}</p>
+                     </div>
+                            <a href="{% url "main:remove-order" order.weekday.id order.menuitem.id %}">
+                                 <button class="block_item-btn btn btn-primary btn-sm">Remove</button>
+                            </a>
+                        </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          {% if orders.has_previous %}
+            <li class="page-item">
+               <a class="page-link" href="?page={{ orders.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+          {% endif %}
+
+
+            {% if  orders.has_previous or orders.has_next %}
+            {% for page_number in orders.paginator.page_range %}
+                {% if orders.number == page_number %}
+                    <li class="page-item active">
+                {% else %}
+                    <li class="page-item">
+                {% endif %}
+                         <a href="?page={{ page_number }}">
+                            {{page_number}}  <span class="sr-only">(current)</span>
+                         </a>
+                    </li>
+            {% endfor %}
+            {% endif %}
+
+
+            {% if orders.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ orders.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+            {% endif %}
+      </ul>
+    </nav>
+
+<div>
+    <h1><span class="badge badge-pill" style="background-color: darkblue; margin-right: 10px;">Paid</span><span class="badge badge-pill" style="background-color: #d9534f;">Unpaid</span></h1>
+</div>
+
+
+
 {% endblock %}

@@ -4,101 +4,221 @@
 {% block content %}
     <h2>Lunches</h2>
      <div class="row">
-
-        <div class="block-wrapper">
-            {% for lunch in monday.lunch.all %}
-                <div class="block-item">
-                    <p class="title">{{ monday.weekday }} {{ lunch }}</p>
-                    {% for item in lunch.menuitem.all %}
-                        <p class="item">{{ item }}</p>
-                    {% endfor %}
-
-                    {% if request.user.is_authenticated %}
-                        <a href="{% url "main:add-launch" monday.id lunch.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
-                    {% else %}
-                        <a href="{% url "main:login" %}"><button class="button btn btn-success btn-sm">Select</button></a>
-                    {% endif %}
-
-                </div>
-            {% endfor %}
-        </div>
-
-        <div class="block-wrapper">
-            {% for lunch in tuesday.lunch.all %}
-                <div class="block-item">
-                    <p class="title">{{ tuesday.weekday }} {{ lunch }}</p>
-                    {% for item in lunch.menuitem.all %}
-                        <p class="item">{{ item }}</p>
-                    {% endfor %}
-
-                    {% if request.user.is_authenticated %}
-                        <a href="{% url "main:add-launch" tuesday.id lunch.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
-                    {% else %}
-                        <a href="{% url "main:login" %}"><button class="button btn btn-success btn-sm">Select</button></a>
-                    {% endif %}
-
-                </div>
-            {% endfor %}
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="block-wrapper">
-            {% for lunch in wednesday.lunch.all %}
-                <div class="block-item">
-                    <p class="title">{{ wednesday.weekday }} {{ lunch }}</p>
-                        {% for item in lunch.menuitem.all %}
-                            <p class="item">{{ item }}</p>
-                        {% endfor %}
-                {% if request.user.is_authenticated %}
-                    <a href="{% url "main:add-launch" wednesday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
+        <div class="displaycolumn">
+                <h4>{{ monday.weekday }} {{ monday.datetime|date:"M d"}}</h4>
+                {% if not monday.menuitems.exists %}
+                    <div style="justify-content: center;" class="block-wrapper">
+                        <div class="block-item half-day">
+                            <h4>HALF DAY</h4>
+                        </div>
+                    </div>
                 {% else %}
-                    <a href="{% url "main:login" %}"><button class="button btn btn-success">Select</button></a>
-                {% endif %}
+                <div class="block-wrapper">
+                    {% for menuitem in monday.menuitems.all %}
+                        {% if menuitem.lunch.name == "Vegetarian" %}
+                            <div class="block-item veg">
+                        {% elif menuitem.lunch.name == "International" %}
+                            <div class="block-item inter">
+                        {% elif menuitem.lunch.name == "Korean" %}
+                            <div class="block-item korean">
+                        {% endif %}
+                            <p class="title">{{ menuitem.lunch }}</p>
+                            <p class="item">{{ menuitem.title }}</p>
+
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'main:add-launch' monday.id menuitem.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
+                            {% else %}
+                                <a href="{% url "main:login" %}"><button class="button btn btn-success btn-sm">Select</button></a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+                {% endif %}
         </div>
 
-        <div class="block-wrapper">
-            {% for lunch in thursday.lunch.all %}
-                <div class="block-item">
-                    <p class="title">{{ thursday.weekday }} {{ lunch }}</p>
-                    {% for item in lunch.menuitem.all %}
-                        <p class="item">{{ item }}</p>
-                    {% endfor %}
+        <div class="displaycolumn">
+            <h4>{{ tuesday.weekday }} {{ tuesday.datetime|date:"M d" }}</h4>
+            {% if not tuesday.menuitems.exists %}
+                 <div style="justify-content: center;" class="block-wrapper">
+                        <div class="block-item half-day">
+                            <h4>HALF DAY</h4>
+                        </div>
+                 </div>
+            {% else %}
+             <div class="block-wrapper">
+                {% for menuitem in tuesday.menuitems.all %}
+                    {% if menuitem.lunch.name == "Vegetarian" %}
+                            <div class="block-item veg">
+                        {% elif menuitem.lunch.name == "International" %}
+                            <div class="block-item inter">
+                        {% elif menuitem.lunch.name == "Korean" %}
+                            <div class="block-item korean">
+                        {% endif %}
+                        <p class="title">{{ menuitem.lunch }}</p>
 
-                    {% if request.user.is_authenticated %}
-                        <a href="{% url "main:add-launch" thursday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
-                    {% else %}
-                        <a href="{% url "main:login" %}"><button class="button btn btn-success">Select</button></a>
-                    {% endif %}
-                </div>
-            {% endfor %}
+                        <p class="item">{{ menuitem.title }}</p>
+
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url "main:add-launch" tuesday.id menuitem.id %}"><button class="button btn btn-success btn-sm">Select</button></a>
+                        {% else %}
+                            <a href="{% url "main:login" %}"><button class="button btn btn-success btn-sm">Select</button></a>
+                        {% endif %}
+
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
 
     </div>
 
     <div class="row">
 
-        <div class="block-wrapper">
-            {% for lunch in friday.lunch.all %}
-                <div class="block-item">
-                    <p class="title">{{ friday.weekday }} {{ lunch }}</p>
-                    {% for item in lunch.menuitem.all %}
-                        <p class="item">{{ item }}</p>
-                    {% endfor %}
+        <div class="displaycolumn">
+        <h4>{{ wednesday.weekday }} {{ wednesday.datetime|date:"M d" }}</h4>
 
-                    {% if request.user.is_authenticated %}
-                        <a href="{% url "main:add-launch" friday.id lunch.id %}"><button class="button btn btn-success">Select</button></a>
-                    {% else %}
-                        <a href="{% url "main:login" %}"><button class="button btn btn-success">Select</button></a>
-                    {% endif %}
-                </div>
-            {% endfor %}
+            {% if not wednesday.menuitems.exists %}
+                <div style="justify-content: center;" class="block-wrapper">
+                        <div class="block-item half-day">
+                            <h4>HALF DAY</h4>
+                        </div>
+                 </div>
+            {% else %}
+                <div style="justify-content: center;" class="block-wrapper">
+                    {% for menuitem in wednesday.menuitems.all %}
+                        {% if menuitem.lunch.name == "Vegetarian" %}
+                            <div class="block-item veg">
+                        {% elif menuitem.lunch.name == "International" %}
+                            <div class="block-item inter">
+                        {% elif menuitem.lunch.name == "Korean" %}
+                            <div class="block-item korean">
+                        {% endif %}
+                            <p class="title">{{ menuitem.lunch }}</p>
+
+                            <p class="item">{{ menuitem.title }}</p>
+
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url "main:add-launch" wednesday.id menuitem.id %}"><button class="button btn btn-success">Select</button></a>
+                        {% else %}
+                            <a href="{% url "main:login" %}"><button class="button btn btn-success">Select</button></a>
+                        {% endif %}
+                        </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
+
+
+        <div class="displaycolumn">
+        <h4>{{ thursday.weekday }} {{ thursday.datetime|date:"M d" }}</h4>
+            {% if not thursday.menuitems.exists %}
+                 <div style="justify-content: center;" class="block-wrapper">
+                        <div class="block-item half-day">
+                            <h4>HALF DAY</h4>
+                        </div>
+                 </div>
+            {% else %}
+            <div class="block-wrapper">
+                {% for menuitem in thursday.menuitems.all %}
+                    {% if menuitem.lunch.name == "Vegetarian" %}
+                            <div class="block-item veg">
+                        {% elif menuitem.lunch.name == "International" %}
+                            <div class="block-item inter">
+                        {% elif menuitem.lunch.name == "Korean" %}
+                            <div class="block-item korean">
+                        {% endif %}
+                        <p class="title">{{ menuitem.lunch }}</p>
+
+                        <p class="item">{{ menuitem.title }}</p>
+
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url "main:add-launch" thursday.id menuitem.id %}"><button class="button btn btn-success">Select</button></a>
+                        {% else %}
+                            <a href="{% url "main:login" %}"><button class="button btn btn-success">Select</button></a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
     </div>
+
+
+    <div class="row">
+        <div class="displaycolumn">
+        <h4>{{ friday.weekday }} {{ friday.datetime|date:"M d" }}</h4>
+
+            {% if not friday.menuitems.exists %}
+                 <div style="justify-content: center;" class="block-wrapper">
+                        <div class="block-item half-day">
+                            <h4>HALF DAY</h4>
+                        </div>
+                 </div>
+            {% else %}
+                <div class="block-wrapper">
+                    {% for menuitem in friday.menuitems.all %}
+                        {% if menuitem.lunch.name == "Vegetarian" %}
+                            <div class="block-item veg">
+                        {% elif menuitem.lunch.name == "International" %}
+                            <div class="block-item inter">
+                        {% elif menuitem.lunch.name == "Korean" %}
+                            <div class="block-item korean">
+                        {% endif %}
+                            <p class="title">{{ menuitem.lunch }}</p>
+
+                            <p class="item">{{ menuitem.title }}</p>
+
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url "main:add-launch" friday.id menuitem.id %}"><button class="button btn btn-success">Select</button></a>
+                            {% else %}
+                                <a href="{% url "main:login" %}"><button class="button btn btn-success">Select</button></a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          {% if objects.has_previous %}
+            <li class="page-item">
+               <a class="page-link" href="?page={{ objects.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+          {% endif %}
+
+            {% if objects.has_previous or objects.has_next %}
+                {% for page_number in objects.paginator.page_range %}
+                    {% if objects.number == page_number %}
+                        <li class="page-item active">
+                    {% else %}
+                        <li class="page-item">
+                    {% endif %}
+                             <a href="?page={{ page_number }}">
+                                {{page_number}}  <span class="sr-only">(current)</span>
+                             </a>
+                        </li>
+                {% endfor %}
+            {% endif %}
+
+
+            {% if objects.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ objects.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+            {% endif %}
+      </ul>
+    </nav>
 
 {% endblock %}
 

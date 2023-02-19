@@ -50,11 +50,13 @@ class Lunch(models.Model):
 
 
 class WeekDay(models.Model):
-    weekday = models.CharField(max_length=255, choices=WEEK_DAYS, unique=True)
-    lunch = models.ManyToManyField(Lunch, related_name="weekday", blank=True)
+    weekday = models.CharField(max_length=255, choices=WEEK_DAYS)
+    datetime = models.DateField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.weekday}"
+        return f"{self.weekday} - {self.datetime}"
+
+
 
 class User(AbstractUser):
     username = None
@@ -65,35 +67,30 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
     objects = UserManager()
 
-class Category(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
 
 
 class MenuItem(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="menuitems")
-    lunch = models.ManyToManyField(Lunch, blank=True, related_name="menuitem")
+    lunch = models.ForeignKey(Lunch, on_delete=models.PROTECT, related_name="menuitem")
+    date = models.ForeignKey(WeekDay, on_delete=models.PROTECT, related_name="menuitems")
     title = models.CharField(max_length=255, blank=False, null=False)
-    price = models.DecimalField(max_digits=1000, decimal_places=2,)
+    price = models.DecimalField(max_digits=1000, decimal_places=2, default=10000.00)
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title} - {self.lunch}"
 
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="order")
     weekday = models.ForeignKey(WeekDay, on_delete=models.CASCADE, related_name="orders")
-    lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="lunch")
+    menuitem = models.ForeignKey(MenuItem, on_delete=models.PROTECT)
     paid = models.BooleanField(default=False)
 
     @property
     def get_total (self):
-        return self.lunch.total_price
+        return self.menuitem.price
 
     class Meta:
-        unique_together = ('user', 'lunch', 'weekday')
+        unique_together = ('user', 'menuitem', 'weekday')
 
     def __str__(self):
-        return f"{self.user}: {self.lunch}"
+        return f"{self.user}: {self.menuitem}"

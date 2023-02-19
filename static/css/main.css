@@ -20,7 +20,7 @@ h1 {
     /* #5bc0de */
     margin-left: 25px;
     margin-right: 25px;
-    height: 600px;
+    height: 750px;
     margin-bottom: 50px;
     border-radius: 10px;
 
@@ -42,15 +42,33 @@ h1 {
 .row .block-wrapper .block-item {
     border: 1px solid;
     border-radius: 10px;
-    width: 160px;
-    height: 140px;
+    width: 180px;
+    height: 135px;
     position: relative;
+}
 
-    background-color: #c9e2b3;
+.block-item.veg {
+    background-color: darkseagreen;
+}
+
+.block-item.inter {
+    background-color: #31b0d5;
+}
+
+.block-item.korean {
+    background-color: khaki;
+}
+
+.block-item.half-day {
+    background-color: #d9534f;
+}
+
+.block-item.half-day h4 {
+    margin-top: 30%;
 }
 
 .group-form {
-    margin-top: 10%;
+    margin-top: 15%;
 }
 
 .group-form h1 {
@@ -65,7 +83,7 @@ h1 {
 .order-row {
     display: flex;
     justify-content: center;
-    margin-top: 120px;
+    margin-top: 200px;
     height: 40%;
 
 }
@@ -90,19 +108,26 @@ h1 {
 .order-row .block-wrapper .block-item {
     padding: 20px;
     border-radius: 10px;
-    width: 200px;
-    height: 80%;
-    margin-top: auto;
+    width: 180px;
+    height: 160px;
 
 }
 
 .forcolumn {
     color: white;
-    background-color: darkblue;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
+.block-item.forcolumn.paid {
+    background-color: darkblue;
+}
+
+.block-item.forcolumn.not-paid {
+    background-color: #d9534f;
+}
+
 
 .block_item-btn {
     margin-bottom: 0;
@@ -149,7 +174,7 @@ margin: 0;
 .balance_container{
     width: 100%;
     height: 100%;
-    padding: 80px;
+    padding: 90px;
 }
 
 .card{
@@ -164,6 +189,7 @@ margin: 0;
     box-shadow: 2px 2px 20px #707070;
     display: flex;flex-direction: column;
     justify-content: space-between;
+    margin-top: 20px;
   }
   .top-block{
     display: inline-block;
@@ -250,14 +276,13 @@ margin: 0;
 
 
 
-
-
 .payment_container{
     width: 60%;
-    height: 80%;
+    height: 60%;
     background-image: linear-gradient(rgb(204, 204, 251),rgb(196, 190, 248) );   
     /* background-color: #fff987;  */
     margin: auto;
+    margin-top: 100px;
     border-radius: 20px;
     display: flex;flex-direction: column;
     justify-content: space-around;
@@ -311,7 +336,7 @@ margin: 0;
     top: 40px;
 } */
 .register_txt{
-margin-top: 40px; 
+margin-top: 10%;
 }
 
 
@@ -328,10 +353,11 @@ margin-top: 40px;
 
 .rules_container{
     width: 70%;
-    height: fit-content;
+    margin-left: 15%;
+    margin-top: 100px;
+    height: max-content;
     border-radius: 20px;
     background-color: #4671a1;
-    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 40px;

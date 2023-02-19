@@ -3,8 +3,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
-from .models import WeekDay, User, Order, Lunch
+from datetime import date
+
+from .models import WeekDay, User, Order, Lunch, MenuItem
 from .forms import UserForm, UserLoginForm
 
 
@@ -12,14 +15,20 @@ def home(request):
     return render(request, "monthly_lunches.html", {})
 
 def lunches(request):
-    weekdays = WeekDay.objects.prefetch_related("lunch").all()
-    monday = weekdays.get(weekday="Monday")
-    tuesday = weekdays.get(weekday="Tuesday")
-    wednesday = weekdays.get(weekday="Wednesday")
-    thursday = weekdays.get(weekday="Thursday")
-    friday = weekdays.get(weekday="Friday")
+    weekdays = WeekDay.objects.all().order_by('datetime')
 
-    return render(request, "lunches.html", {
+    paginator = Paginator(weekdays, 5)
+    page_number = request.GET.get('page')
+    objects = paginator.get_page(page_number)
+
+    monday = objects[0]
+    tuesday = objects[1]
+    wednesday = objects[2]
+    thursday = objects[3]
+    friday = objects[4]
+
+    return render(request, 'lunches.html', {
+        "objects": objects,
         "monday": monday,
         "tuesday": tuesday,
         "wednesday": wednesday,
@@ -72,37 +81,42 @@ def logoutUser(request):
     return redirect("/")
 
 
-def add_launch(request, weekday_id, lunch_id):
-    weekday = WeekDay.objects.get(id=weekday_id)
-    lunch = Lunch.objects.get(id=lunch_id)
-
+def add_launch(request, weekday_id, menuitem_id):
     user = request.user
+    weekday = WeekDay.objects.get(id=weekday_id)
+    menuitem = MenuItem.objects.get(id=menuitem_id)
+
     orders = Order.objects.filter(user=user, weekday=weekday)
 
     if orders.exists():
         order = orders[0]
-        if order.lunch != lunch:
-            order.lunch = lunch
-            order.save(update_fields=['lunch'])
-            print("Updated")
-    elif not orders.exists():
+        if order.menuitem != menuitem:
+            order.menuitem = menuitem
+            order.save(update_fields=['menuitem'])
+    else:
         order = Order.objects.create(
             user=user,
             weekday=weekday,
-            lunch=lunch,
+            menuitem=menuitem,
+            paid=False,
         )
         order.save()
 
-    return redirect("/orders")
+    return redirect('/orders')
 
 
 @login_required
 def orders(request):
     user = request.user
+    orders = Order.objects.filter(user=user).order_by('weekday__datetime').order_by('paid')
 
-    orders = Order.objects.filter(user=user).order_by("weekday_id")
+    paginator = Paginator(orders, 5)
+    page_number = request.GET.get('page')
+    objects = paginator.get_page(page_number)
+
+
     return render(request, "orders.html", {
-        "orders": orders,
+        "orders": objects,
     })
 
 
@@ -132,9 +146,10 @@ def payment(request):
     })
 
 
-def remove_order(request, weekday_id, lunch_id):
+@login_required
+def remove_order(request, weekday_id, menuitem_id):
     user = request.user
-    order = Order.objects.get(user=user, weekday_id=weekday_id, lunch_id=lunch_id)
+    order = Order.objects.get(user=user, weekday_id=weekday_id, menuitem_id=menuitem_id)
     order.delete()
     return redirect("/orders")
 
