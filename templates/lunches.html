@@ -7,7 +7,7 @@
         <div class="displaycolumn">
                 <h4>{{ monday.weekday }} {{ monday.datetime|date:"M d"}}</h4>
                 {% if not monday.menuitems.exists %}
-                    <div style="justify-content: center;" class="block-wrapper">
+                    <div class="center block-wrapper">
                         <div class="block-item half-day">
                             <h4>HALF DAY</h4>
                         </div>
@@ -39,7 +39,7 @@
         <div class="displaycolumn">
             <h4>{{ tuesday.weekday }} {{ tuesday.datetime|date:"M d" }}</h4>
             {% if not tuesday.menuitems.exists %}
-                 <div style="justify-content: center;" class="block-wrapper">
+                 <div class="center block-wrapper">
                         <div class="block-item half-day">
                             <h4>HALF DAY</h4>
                         </div>
@@ -78,13 +78,13 @@
         <h4>{{ wednesday.weekday }} {{ wednesday.datetime|date:"M d" }}</h4>
 
             {% if not wednesday.menuitems.exists %}
-                <div style="justify-content: center;" class="block-wrapper">
+                <div class="center block-wrapper">
                         <div class="block-item half-day">
                             <h4>HALF DAY</h4>
                         </div>
                  </div>
             {% else %}
-                <div style="justify-content: center;" class="block-wrapper">
+                <div class="block-wrapper">
                     {% for menuitem in wednesday.menuitems.all %}
                         {% if menuitem.lunch.name == "Vegetarian" %}
                             <div class="block-item veg">
@@ -112,7 +112,7 @@
         <div class="displaycolumn">
         <h4>{{ thursday.weekday }} {{ thursday.datetime|date:"M d" }}</h4>
             {% if not thursday.menuitems.exists %}
-                 <div style="justify-content: center;" class="block-wrapper">
+                 <div class="center block-wrapper">
                         <div class="block-item half-day">
                             <h4>HALF DAY</h4>
                         </div>
@@ -150,7 +150,7 @@
         <h4>{{ friday.weekday }} {{ friday.datetime|date:"M d" }}</h4>
 
             {% if not friday.menuitems.exists %}
-                 <div style="justify-content: center;" class="block-wrapper">
+                 <div class="center block-wrapper">
                         <div class="block-item half-day">
                             <h4>HALF DAY</h4>
                         </div>
