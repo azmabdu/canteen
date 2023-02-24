@@ -40,8 +40,8 @@ body {
 
 nav.navbar {
     z-index: 99;
-    height: 70px;
-    margin-left: 380px;
+    height: auto;
+    margin:auto
 }
 
 nav.navbar a.navbar-brand {
@@ -60,7 +60,7 @@ ul.navbar-nav li a:hover {
 
 ul.navbar-nav li a {
     color: #000;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'UbuntuMB';
     text-transform: uppercase;
     padding: 25px 0px;

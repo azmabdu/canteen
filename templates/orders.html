@@ -6,13 +6,13 @@
     <div class="order-row">
         <div class="block-wrapper ">
             {% for order in orders %}
-                <div class="displaycolumn">
+                <div class="order_item displaycolumn">
                 <h3 class="fitcontent">{{ order.weekday }}</h3>
                  <div class="block-item forcolumn">
                  <div>
                     <p class="title">{{ order.lunch }} Lunch</p>
                     {% for item in order.lunch.menuitem.all %}
-                        <p>{{ item }}</p>
+                        <p class="items">{{ item }}</p>
                     {% endfor %}
                  </div>
                         <a href="{% url "main:remove-order" order.weekday_id order.lunch_id %}">
