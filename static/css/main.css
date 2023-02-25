@@ -351,10 +351,8 @@ h1 {
     padding-bottom: 10%;
     margin: auto;
     margin-top: 10px;
-
     margin-bottom: 50px;
     border-radius: 10px;
-
 }
 
 .navbar {
@@ -371,8 +369,6 @@ h1 {
     width: 100%;
     margin: auto;
 }
-
-
 
 .navbar-nav {
     width: 100%;
@@ -507,19 +503,6 @@ h1 {
     width: 50%;
     margin: auto
 }
-
-/* .balance_body-left {
-    width: 45%;
-    height: 100%;
-    background-color: #b5dfcf;
-    color: rgb(30, 0, 183);
-    border-radius: 20px;
-    margin-top: auto;
-}
-.balance_body-right{
-    flex: 1;
-    background-color:rgb(42, 126, 244);
-} */
 .balance_title {
     margin: 0;
 }
