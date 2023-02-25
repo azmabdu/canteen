@@ -37,19 +37,18 @@
             </li>
           {% endif %}
 
-
             {% if  orders.has_previous or orders.has_next %}
-            {% for page_number in orders.paginator.page_range %}
-                {% if orders.number == page_number %}
-                    <li class="page-item active">
-                {% else %}
-                    <li class="page-item">
-                {% endif %}
-                         <a href="?page={{ page_number }}">
-                            {{page_number}}  <span class="sr-only">(current)</span>
-                         </a>
-                    </li>
-            {% endfor %}
+                {% for page_number in orders.paginator.page_range %}
+                    {% if orders.number == page_number %}
+                        <li class="page-item active">
+                    {% else %}
+                        <li class="page-item">
+                    {% endif %}
+                             <a href="?page={{ page_number }}">
+                                {{page_number}}  <span class="sr-only">(current)</span>
+                             </a>
+                        </li>
+                {% endfor %}
             {% endif %}
 
 

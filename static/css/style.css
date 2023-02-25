@@ -3,20 +3,6 @@ ul {
     list-style-type: none;
 }
 
-@font-face {
-    font-family: 'Ubuntu-B';
-    src: url('../fonts/Ubuntu-B.ttf');
-}
-
-@font-face {
-    font-family: 'Ubuntu-L';
-    src: url('../fonts/Ubuntu-L.ttf');
-}
-
-@font-face {
-    font-family: 'Ubuntu-M';
-    src: url('../fonts/Ubuntu-M.ttf');
-}
 
 @font-face {
     font-family: 'Ubuntu-R';
@@ -28,10 +14,6 @@ ul {
     src: url('../fonts/UbuntuMB.ttf');
 }
 
-@font-face {
-    font-family: 'UbuntuMR';
-    src: url('../fonts/UbuntuMR.ttf');
-}
 
 body {
     font-family: 'Ubuntu-R';

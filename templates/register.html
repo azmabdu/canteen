@@ -15,7 +15,6 @@
     <form action="{% url "main:register" %}" method="POST">
         {% csrf_token %}
         <div class="input_register">
-
             <div class="login_input borderup">
                 <p>Email:</p>
                 <p class="input"> {{ form.email }}</p>

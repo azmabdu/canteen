@@ -131,4 +131,4 @@ AUTH_USER_MODEL = 'main.User'
 LOGIN_URL = "/login"
 
 
-CSRF_TRUSTED_ORIGINS = ['https://63fc-213-230-114-146.eu.ngrok.io']
+CSRF_TRUSTED_ORIGINS = ['https://04ef-213-230-112-206.eu.ngrok.io']

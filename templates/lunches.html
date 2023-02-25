@@ -59,9 +59,7 @@
                             <div class="block-item korean">
                                 {% endif %}
                                 <p class="title">{{ menuitem.lunch }}</p>
-
                                 <p class="item">{{ menuitem.title }}</p>
-
                                 {% if request.user.is_authenticated %}
                                 <a href="{% url "main:add-launch" tuesday.id menuitem.id %}"><button
                                         class="button btn btn-success btn-sm">Select</button></a>
@@ -69,7 +67,6 @@
                                 <a href="{% url "main:login" %}"><button
                                         class="button btn btn-success btn-sm">Select</button></a>
                                 {% endif %}
-
                             </div>
                             {% endfor %}
                         </div>
@@ -82,7 +79,6 @@
 
                     <div class="displaycolumn">
                         <h4>{{ wednesday.weekday }} {{ wednesday.datetime|date:"M d" }}</h4>
-
                         {% if not wednesday.menuitems.exists %}
                         <div class="center block-wrapper">
                             <div class="block-item half-day">
@@ -100,9 +96,7 @@
                                     <div class="block-item korean">
                                         {% endif %}
                                         <p class="title">{{ menuitem.lunch }}</p>
-
                                         <p class="item">{{ menuitem.title }}</p>
-
                                         {% if request.user.is_authenticated %}
                                         <a href="{% url "main:add-launch" wednesday.id menuitem.id %}"><button
                                                 class="button btn btn-success">Select</button></a>
@@ -136,9 +130,7 @@
                                             <div class="block-item korean">
                                                 {% endif %}
                                                 <p class="title">{{ menuitem.lunch }}</p>
-
                                                 <p class="item">{{ menuitem.title }}</p>
-
                                                 {% if request.user.is_authenticated %}
                                                 <a href="{% url "main:add-launch" thursday.id menuitem.id %}"><button
                                                         class="button btn btn-success">Select</button></a>
@@ -151,9 +143,7 @@
                                         </div>
                                         {% endif %}
                                     </div>
-
                                 </div>
-
 
                                 <div class="row">
                                     <div class="displaycolumn">
@@ -175,9 +165,7 @@
                                                     <div class="block-item korean">
                                                         {% endif %}
                                                         <p class="title">{{ menuitem.lunch }}</p>
-
                                                         <p class="item">{{ menuitem.title }}</p>
-
                                                         {% if request.user.is_authenticated %}
                                                         <a href="{% url "main:add-launch" friday.id menuitem.id %}"><button
                                                                 class="button btn btn-success">Select</button></a>
@@ -190,9 +178,7 @@
                                                 </div>
                                                 {% endif %}
                                             </div>
-
                                         </div>
-
 
                                         <nav class="pagination_nav" aria-label="Page navigation example">
                                             <ul class="pagination">
@@ -201,27 +187,24 @@
                                                     <a class="page-link" href="?page={{ objects.previous_page_number }}"
                                                         aria-label="Previous">
                                                         <span aria-hidden="true">&laquo;</span>
-
                                                         <span class="sr-only">Previous</span>
                                                     </a>
                                                 </li>
                                                 {% endif %}
 
                                                 {% if objects.has_previous or objects.has_next %}
-                                                {% for page_number in objects.paginator.page_range %}
-                                                {% if objects.number == page_number %}
-                                                <li class="page-item active">
-                                                    {% else %}
-                                                <li class="page-item">
-                                                    {% endif %}
-                                                    <a href="?page={{ page_number }}">
-                                                        {{page_number}} <span class="sr-only">(current)</span>
-                                                    </a>
-                                                </li>
-                                                {% endfor %}
+                                                    {% for page_number in objects.paginator.page_range %}
+                                                    {% if objects.number == page_number %}
+                                                    <li class="page-item active">
+                                                        {% else %}
+                                                    <li class="page-item">
+                                                        {% endif %}
+                                                        <a href="?page={{ page_number }}">
+                                                            {{page_number}} <span class="sr-only">(current)</span>
+                                                        </a>
+                                                    </li>
+                                                    {% endfor %}
                                                 {% endif %}
-
-
                                                 {% if objects.has_next %}
                                                 <li class="page-item">
                                                     <a class="page-link" href="?page={{ objects.next_page_number }}"

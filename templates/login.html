@@ -1,32 +1,30 @@
 {% extends "main.html" %}
 
 {% block content %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-danger notify" role="alert">
-    {{ message }}
-</div>
-{% endfor %}
-{% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger notify" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 
-<div class="group-form">
-    <h2>Login</h2>
-    <form action="{% url 'main:login' %}" method="POST">
-        {% csrf_token %}
-        <div class="login_input borderup">
-
-            <p>Email: </p>
-            <p class="input"> {{ form.email }}</p>
-        </div>
-        <div class="login_input borderdown">
-
-            <p>Password:</p>
-            <p class="input"> {{ form.password }}</p>
-        </div>
-        <div class="btn_login">
-            <button class="btn btn-success" type="submit">Login</button>
-        </div>
-    </form>
-    Don't have an account? <a href="{% url 'main:register' %}">Register</a>
-</div>
+    <div class="group-form">
+        <h2>Login</h2>
+        <form action="{% url 'main:login' %}" method="POST">
+            {% csrf_token %}
+            <div class="login_input borderup">
+                <p>Email: </p>
+                <p class="input"> {{ form.email }}</p>
+            </div>
+            <div class="login_input borderdown">
+                <p>Password:</p>
+                <p class="input"> {{ form.password }}</p>
+            </div>
+            <div class="btn_login">
+                <button class="btn btn-success" type="submit">Login</button>
+            </div>
+        </form>
+        Don't have an account? <a href="{% url 'main:register' %}">Register</a>
+    </div>
 {% endblock %}
