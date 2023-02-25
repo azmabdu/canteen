@@ -179,8 +179,7 @@
                                                         <p class="item">{{ menuitem.title }}</p>
 
                                                         {% if request.user.is_authenticated %}
-                                                        <a href="{% url "main:add-launch" friday.id menuitem.id
-                                                            %}"><button
+                                                        <a href="{% url "main:add-launch" friday.id menuitem.id %}"><button
                                                                 class="button btn btn-success">Select</button></a>
                                                         {% else %}
                                                         <a href="{% url "main:login" %}"><button
