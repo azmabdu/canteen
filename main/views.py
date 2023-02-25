@@ -10,7 +10,6 @@ from datetime import date
 from .models import WeekDay, User, Order, Lunch, MenuItem
 from .forms import UserForm, UserLoginForm
 
-
 def home(request):
     return render(request, "monthly_lunches.html", {})
 

@@ -29,7 +29,8 @@
     {% endif %}
 
     <nav class="navbar">
-        <div class="container">
+        <div class="header_container">
+                <div class="responsiveness_nav" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         {% if request.path == "/" %}
                             <li class="active"><a href="{% url "main:home" %}">Menu</a></li>
@@ -73,6 +74,7 @@
                             <li><a href="{% url "main:login" %}">Login/Singup</a></li>
                         {% endif %}
                     </ul>
+                </div>
             </div>
 	</nav>
 

@@ -6,7 +6,7 @@
     <div class="order-row">
         <div class="block-wrapper ">
             {% for order in orders %}
-                <div class="displaycolumn">
+                <div class="dfc">
                     <h4 class="fitcontent">{{ order.weekday.weekday }} {{ order.weekday.datetime|date:"M d" }}</h4>
                      {% if not order.paid  %}
                          <div class="block-item forcolumn not-paid">
